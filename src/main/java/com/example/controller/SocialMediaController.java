@@ -62,8 +62,8 @@ public class SocialMediaController {
 
     @PostMapping("/login")
     public ResponseEntity<Account> loginUser(@RequestBody Account user) throws AuthenticationException{
-        accountService.loginUser(user);
-        return ResponseEntity.status(HttpStatus.OK).body(user);
+        Account loggedUser = accountService.loginUser(user);
+        return ResponseEntity.status(HttpStatus.OK).body(loggedUser);
     }
 
     @ExceptionHandler(AuthenticationException.class)

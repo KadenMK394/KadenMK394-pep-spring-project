@@ -35,7 +35,7 @@ public class AccountService {
     public Account loginUser(Account user) throws AuthenticationException{
         for(Account account:accountRepository.findAll()){
             if(account.getUsername().equals(user.getUsername()) && account.getPassword().equals(user.getPassword())){
-                return user;
+                return account;
             }
         }
         throw new AuthenticationException("Check username and password credentials");
